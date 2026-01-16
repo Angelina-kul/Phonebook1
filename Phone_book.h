@@ -60,6 +60,11 @@ class Phonebook_app {
 private:
     vector<Contact_info> Contacts;
 public:
+    size_t contactCount() const;
+    Contact_info& getContact(size_t index);
+    void addContact(const Contact_info& c);
+    void removeContact(size_t index);
+
     bool save_file();
     bool load_file();
     bool print_all();

@@ -212,6 +212,11 @@ bool Contact_info::deserialize(const string& data) {
 	}
 }
 
+size_t Phonebook_app::contactCount() const { return Contacts.size(); }
+Contact_info& Phonebook_app::getContact(size_t index) { return Contacts[index]; }
+void Phonebook_app::addContact(const Contact_info& c) { Contacts.push_back(c); }
+void Phonebook_app::removeContact(size_t index) { if (index < Contacts.size()) Contacts.erase(Contacts.begin() + index); }
+
 bool Phonebook_app::save_file() {
 	string filename = "contacts.txt";
 	ofstream file(filename);
